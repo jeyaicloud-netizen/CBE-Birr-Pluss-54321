@@ -186,21 +186,21 @@
     
     function toggleSigninLanguage() {
       signinLanguage = signinLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('signin-image').src = signinLanguage === 'AM' ? 'cbe_signin_amharic.png' : 'cbe_signin_english.png';
+      document.getElementById('signin-image').src = signinLanguage === 'AM' ? './cbe_signin_amharic.png' : './cbe_signin_english.png';
       document.getElementById('signin-marquee-text').textContent = signinLanguage === 'AM' ? 'እንኳን ወደ CBE Birr ፕላስ መተግበሪያ በሰላም መጡ!' : 'Welcome to CBE Birr plus app!';
     }
 
     function togglePinLanguage() {
       pinLanguage = pinLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('pin-image').src = pinLanguage === 'AM' ? 'cbe_pin_amharic.png' : 'cbe_pin_english.png';
+      document.getElementById('pin-image').src = pinLanguage === 'AM' ? './cbe_pin_amharic.png' : './cbe_pin_english.png';
       document.querySelector('.pin-dots-container').style.top = pinLanguage === 'AM' ? '28.3%' : '29.3%';
     }
 
     function toggleHomeLanguage() {
       homeLanguage = homeLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('home-image-header').src = homeLanguage === 'AM' ? 'cbe_top_header_am.png' : 'cbe_top_header_en.png';
-      document.getElementById('home-image-body').src = homeLanguage === 'AM' ? 'scroll_body_am.png' : 'scroll_body_en.png';
-      document.querySelector('#home-footer img').src = homeLanguage === 'AM' ? 'bottom_nav_am.png' : 'bottom_nav_en.png';
+      document.getElementById('home-image-header').src = homeLanguage === 'AM' ? './cbe_top_header_am.png' : './cbe_top_header_en.png';
+      document.getElementById('home-image-body').src = homeLanguage === 'AM' ? './scroll_body_am.png' : './scroll_body_en.png';
+      document.querySelector('#home-footer img').src = homeLanguage === 'AM' ? './bottom_nav_am.png' : './bottom_nav_en.png';
     }
 
     function showPage(pageId) {
