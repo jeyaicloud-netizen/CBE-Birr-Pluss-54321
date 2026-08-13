@@ -77,13 +77,15 @@
       display: flex;
       justify-content: space-between;
       z-index: 50;
+      pointer-events: none;
     }
     .pin-dot-display {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
       color: #6b1d7f;
       width: 20px;
       text-align: center;
+      line-height: 1;
     }
     .marquee-container {
       position: absolute;
@@ -205,11 +207,9 @@
             <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/step6_transaction_success_bg.png" alt="Send Money Step 6" style="width: 100%; height: 100%; object-fit: fill; display: block;">
             <div id="btn-to-step-7" onclick="showStep('step-7')" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
         </div>
-        <!-- Step 7: Receipt (SMS Triggering added here) -->
+        <!-- Step 7: Receipt -->
         <div id="step-7" class="step" style="position: relative; width: 100%; height: 100%;">
             <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/step7_receipt_page.png" alt="Send Money Step 7" style="width: 100%; height: 100%; object-fit: fill; display: block;">
-            
-            <!-- When clicked, finishes transaction and opens SMS app with CBE receipt message -->
             <div onclick="triggerReceiptSms(); showPage('home-page'); showStep('step-1');" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
         </div>
     </div>
@@ -228,8 +228,6 @@
       const txnId = 'FT' + Math.floor(1000000000 + Math.random() * 9000000000);
       
       const message = `CBE Birr: You have successfully transferred ETB ${amount} to ${recipient}. Txn ID: ${txnId}. Thank you for using CBE Birr!`;
-      
-      // Open Native SMS App
       window.location.href = `sms:?body=${encodeURIComponent(message)}`;
     }
 
