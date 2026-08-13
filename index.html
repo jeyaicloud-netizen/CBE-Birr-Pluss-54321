@@ -1,163 +1,17 @@
-<!DOCTYPE html>
-<html lang="am">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CBEBirr Plus</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; -webkit-tap-highlight-color: transparent !important; outline: none !important; }
-    body { background-color: #f5f5f5; height: 100vh; margin: 0; padding: 0; }
-    .mobile-frame { width: 100vw; height: 100vh; margin: 0; padding: 0; position: relative; overflow: hidden; background-color: #f5f5f5; }
-    .page { display: none; flex-direction: column; height: 100vh; width: 100vw; }
-    .page.active { display: flex; }
-    .step { display: none; }
-    .step.active { display: block; }
-    
-    #home-page {
-      position: relative !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      overflow: hidden !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    #home-header {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      z-index: 100 !important;
-      pointer-events: none;
-    }
-    #home-footer {
-      position: fixed !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: auto !important;
-      z-index: 100 !important;
-      background: transparent !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      line-height: 0 !important;
-      pointer-events: none;
-    }
-    #home-footer img {
-      width: 100% !important;
-      height: auto !important;
-      display: block !important;
-      background: transparent !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      object-fit: cover !important;
-    }
-    #home-body {
-      position: absolute !important;
-      top: 0 !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      overflow-y: auto !important;
-      z-index: 10 !important;
-      -webkit-overflow-scrolling: touch;
-    }
-    #home-image-body {
-      width: 100% !important;
-      height: auto !important;
-      display: block !important;
-      margin: 0 !important;
-      padding-top: 320px !important;
-      padding-bottom: 100px !important;
-    }
-  </style>
-</head>
-<body>
-  <div class="mobile-frame">
-    <!-- Splash Page -->
-    <div id="splash-page" class="page active">
-      <div style="position: relative; width: 100%; height: 100%;">
-        <img src="app_splash.png" alt="Splash Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
-      </div>
-    </div>
-    <!-- Welcome Page -->
-    <div id="welcome-page" class="page">
-      <div style="position: relative; width: 100%; height: 100%;">
-        <img src="app_welcome.png" alt="Welcome Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
-      </div>
-    </div>
-    <!-- Sign-In Page -->
-    <div id="signin-page" class="page">
-      <div style="position: relative; width: 100%; height: 100%;">
-        <img id="signin-image" src="./cbe_signin_english.png" alt="Sign-In Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
-        <div style="position: absolute; top: 14%; left: 5%; width: 90%; height: 6%; background: #fff; z-index: 98;"></div>
-        <div style="position: absolute; top: 21%; left: 5%; width: 90%; height: 6%; background: #fff; z-index: 98;"></div>
-        <div onclick="showPage('pin-page')" style="position: absolute; top: 41.5%; left: 10%; width: 80%; height: 6.5%; z-index: 100; cursor: pointer; background: transparent;"></div>
-        <div onclick="toggleSigninLanguage()" style="position: absolute; top: 33px; left: 13px; width: 85px; height: 38px; cursor: pointer; background: transparent; z-index: 101;"></div>
-      </div>
-    </div>
-    <!-- PIN Page -->
-    <div id="pin-page" class="page">
-      <div style="position: relative; width: 100%; height: 100%;">
-        <img id="pin-image" src="./cbe_pin_amharic.png" alt="PIN Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
-        <div onclick="togglePinLanguage()" style="position: absolute; top: 33px; left: 13px; width: 85px; height: 38px; cursor: pointer; background: transparent; z-index: 20;"></div>
-        <div onclick="showPage('signin-page')" style="position: absolute; top: 15.5%; left: 4.5%; width: 55px; height: 55px; z-index: 999; cursor: pointer; background: transparent;"></div>
-      </div>
-    </div>
-    <!-- Home Page -->
-    <div id="home-page" class="page">
-      <div id="home-header">
-        <img id="home-image-header" src="./cbe_top_header_en.png" alt="Header" style="width: 100%; height: 100%; object-fit: fill; display: block; pointer-events: auto;">
-        <div onclick="toggleHomeLanguage()" style="position: absolute; top: 15%; right: 5%; width: 15%; height: 20%; cursor: pointer; background: transparent; z-index: 20; pointer-events: auto;"></div>
-      </div>
-      
-      <div id="home-body" style="position: absolute !important; top: 0 !important; bottom: 0 !important; left: 0 !important; right: 0 !important; overflow-y: scroll !important; z-index: 10 !important;">
-        <div style="position: relative; width: 100%; max-width: 480px; margin: 0 auto;">
-            <img id="home-image-body" src="./scroll_body_en.png" alt="Body" style="width: 100%; display: block;">
-            <div onclick="window.location.href='./to_cbe_account.html'" ontouchend="window.location.href='./to_cbe_account.html'" style="position: absolute; top: 31%; left: 51%; width: 22%; height: 8.5%; z-index: 999; cursor: pointer;"></div>
-        </div>
-      </div>
-      
-      <div id="home-footer">
-        <img src="./bottom_nav_en.png" alt="Bottom Nav" style="width: 100% !important; height: auto !important; display: block !important;">
-        <div id="nav-others" onclick="window.location.href='./others.html'" style="position: absolute; bottom: 0; right: 0; width: 25%; height: 100%; cursor: pointer; background: transparent; z-index: 101;"></div>
-      </div>
-    </div>
-  </div>
-  <script>
-    let signinLanguage = 'EN';
-    let pinLanguage = 'AM';
-    let homeLanguage = 'EN';
-    
-    function toggleSigninLanguage() {
-      signinLanguage = signinLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('signin-image').src = signinLanguage === 'AM' ? './cbe_signin_amharic.png' : './cbe_signin_english.png';
-    }
 
-    function togglePinLanguage() {
-      pinLanguage = pinLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('pin-image').src = pinLanguage === 'AM' ? './cbe_pin_amharic.png' : './cbe_pin_english.png';
-    }
-
-    function toggleHomeLanguage() {
-      homeLanguage = homeLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('home-image-header').src = homeLanguage === 'AM' ? './cbe_top_header_am.png' : './cbe_top_header_en.png';
-      document.getElementById('home-image-body').src = homeLanguage === 'AM' ? './scroll_body_am.png' : './scroll_body_en.png';
-      document.querySelector('#home-footer img').src = homeLanguage === 'AM' ? './bottom_nav_am.png' : './bottom_nav_en.png';
-    }
-
-    function showPage(pageId) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(pageId).classList.add('active');
-    }
-
-    // Auto transitions
-    if (localStorage.getItem('showHome') === 'true') {
-      localStorage.removeItem('showHome');
-      showPage('home-page');
-    } else {
-      setTimeout(() => showPage('welcome-page'), 800);
-      setTimeout(() => showPage('signin-page'), 1600);
-    }
-  </script>
-</body>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>503 Backend.max_conn reached</title>
+  </head>
+  <body>
+    <h1>Error 503 Backend.max_conn reached</h1>
+    <p>Backend.max_conn reached</p>
+    <h3>Error 54113</h3>
+    <p>Details: cache-jnb7021-JNB 1786639615 2544408204</p>
+    <hr>
+    <p>Varnish cache server</p>
+  </body>
 </html>
