@@ -38,7 +38,7 @@
   
   <div id="others-body">
     <div id="image-wrapper">
-        <img id="others-content-img" src="./btn_others_en.png" alt="Others Content">
+      <img id="others-content-img" src="./btn_others_en.png" alt="Others Content">
         
         <!-- Click Overlays -->
         <div id="biometrics-overlay" class="click-overlay" style="top: 44.5%; left: 0; width: 100%; height: 5.5%;"></div>
@@ -94,13 +94,15 @@
   
   <!-- Floating Map Button (Purple) -->
   <div id="map-button" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: purple; border-radius: 50%; z-index: 1000; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px;">Map</div>
+<div id="map-button" style="...">Map</div>
 
-  <script>
-    let currentLang = localStorage.getItem('lang') || 'EN';
-    
-    function updateImages() {
-      document.getElementById('others-content-img').src = currentLang === 'AM' ? './btn_others_am.png' : './btn_others_en.png';
-    }
+<script>
+function updateImages() {
+  function updateImages() {
+  const imgAM = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/btn_others_am.png';
+  const imgEN = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/btn_others_en.png';
+  document.getElementById('others-content-img').src = currentLang === 'AM' ? imgAM : imgEN;
+}
     
     function toggleLanguage() {
       currentLang = currentLang === 'AM' ? 'EN' : 'AM';
