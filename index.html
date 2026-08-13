@@ -69,6 +69,43 @@
       padding-top: 320px !important;
       padding-bottom: 100px !important;
     }
+    .pin-dots-container {
+      position: absolute;
+      top: 29.3%;
+      left: 33%;
+      width: 34%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 50;
+    }
+    .pin-dot-display {
+      font-size: 24px;
+      font-weight: bold;
+      color: #6b1d7f;
+      width: 20px;
+      text-align: center;
+    }
+    .marquee-container {
+      position: absolute;
+      top: 21%;
+      left: 5%;
+      width: 90%;
+      overflow: hidden;
+      white-space: nowrap;
+      z-index: 99;
+    }
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 12s linear infinite;
+      color: #6b1d7f;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
   </style>
 </head>
 <body>
@@ -76,20 +113,19 @@
     <!-- Splash Page -->
     <div id="splash-page" class="page active">
       <div style="position: relative; width: 100%; height: 100%;">
-        <img src="app_splash.png" alt="Splash Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+        <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/app_splash.png" alt="Splash Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
       </div>
     </div>
     <!-- Welcome Page -->
     <div id="welcome-page" class="page">
       <div style="position: relative; width: 100%; height: 100%;">
-        <img src="app_welcome.png" alt="Welcome Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+        <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/app_welcome.png" alt="Welcome Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
       </div>
     </div>
     <!-- Sign-In Page -->
     <div id="signin-page" class="page">
       <div style="position: relative; width: 100%; height: 100%;">
-        <img id="signin-image" src="./cbe_signin_english.png" alt="Sign-In Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
-        <!-- Masks to cover background text -->
+        <img id="signin-image" src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_signin_english.png" alt="Sign-In Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
         <div style="position: absolute; top: 14%; left: 5%; width: 90%; height: 6%; background: #fff; z-index: 98;"></div>
         <div style="position: absolute; top: 21%; left: 5%; width: 90%; height: 6%; background: #fff; z-index: 98;"></div>
         
@@ -103,7 +139,7 @@
     <!-- PIN Page -->
     <div id="pin-page" class="page">
       <div style="position: relative; width: 100%; height: 100%;">
-        <img id="pin-image" src="cbe_pin_amharic.png" alt="PIN Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+        <img id="pin-image" src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_pin_amharic.png" alt="PIN Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
         
         <div class="pin-dots-container">
           <div id="pin-dot-0" class="pin-dot-display"></div>
@@ -119,19 +155,19 @@
     <!-- Home Page -->
     <div id="home-page" class="page">
       <div id="home-header">
-        <img id="home-image-header" src="cbe_top_header_en.png" alt="Header" style="width: 100%; height: 100%; object-fit: fill; display: block; pointer-events: auto;">
+        <img id="home-image-header" src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_top_header_en.png" alt="Header" style="width: 100%; height: 100%; object-fit: fill; display: block; pointer-events: auto;">
         <div onclick="toggleHomeLanguage()" style="position: absolute; top: 15%; right: 5%; width: 15%; height: 20%; cursor: pointer; background: transparent; z-index: 20; pointer-events: auto;"></div>
       </div>
       
       <div id="home-body" style="position: absolute !important; top: 0 !important; bottom: 0 !important; left: 0 !important; right: 0 !important; overflow-y: scroll !important; z-index: 10 !important;">
         <div style="position: relative; width: 100%; max-width: 480px; margin: 0 auto;">
-            <img id="home-image-body" src="scroll_body_en.png" alt="Body" style="width: 100%; display: block; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; pointer-events: none;">
+            <img id="home-image-body" src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/scroll_body_en.png" alt="Body" style="width: 100%; display: block; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; pointer-events: none;">
             <div onclick="window.location.href='./to_cbe_account.html'" ontouchend="window.location.href='./to_cbe_account.html'" style="position: absolute; top: 31%; left: 51%; width: 22%; height: 8.5%; z-index: 999; display: block; background: rgba(0,0,0,0); border: none; outline: none; -webkit-tap-highlight-color: transparent; cursor: pointer;"></div>
         </div>
       </div>
       
       <div id="home-footer">
-        <img src="bottom_nav_en.png" alt="Bottom Nav" style="width: 100% !important; height: auto !important; display: block !important; margin: 0 !important; padding: 0 !important; pointer-events: auto;">
+        <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/bottom_nav_en.png" alt="Bottom Nav" style="width: 100% !important; height: auto !important; display: block !important; margin: 0 !important; padding: 0 !important; pointer-events: auto;">
         <div id="nav-others" onclick="window.location.href='./others.html'" style="position: absolute; bottom: 0; right: 0; width: 25%; height: 100%; cursor: pointer; background: transparent; z-index: 101; pointer-events: auto;"></div>
       </div>
     </div>
@@ -139,7 +175,7 @@
     <div id="send-money-flow" class="page">
         <!-- Step 1: Input -->
         <div id="step-1" class="step active" style="position: relative; width: 100%; height: 100%;">
-            <img src="step1_send_money_bg.png" alt="Send Money Step 1" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+            <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/step1_send_money_bg.png" alt="Send Money Step 1" style="width: 100%; height: 100%; object-fit: fill; display: block;">
             <div onclick="showPage('home-page')" style="position: absolute; top: 2%; left: 2%; width: 12%; height: 6%; cursor: pointer; background: transparent; z-index: 10;"></div>
             <input type="number" id="input-recipient" placeholder="Recipient" style="position: absolute; top: 12%; left: 18%; width: 75%; height: 7%; background: transparent; border: none; outline: none; z-index: 5;">
             <input type="number" id="input-amount" placeholder="Amount" style="position: absolute; top: 25%; left: 18%; width: 75%; height: 7%; background: transparent; border: none; outline: none; z-index: 5;">
@@ -147,36 +183,38 @@
         </div>
         <!-- Step 2: Confirm -->
         <div id="step-2" class="step" style="position: relative; width: 100%; height: 100%;">
-            <img src="step2_confirm_sheet_bg.png" alt="Send Money Step 2" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+            <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/step2_confirm_sheet_bg.png" alt="Send Money Step 2" style="width: 100%; height: 100%; object-fit: fill; display: block;">
             <div id="btn-to-step-3" onclick="showStep('step-3'); setTimeout(() => showStep('step-4'), 2000);" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
         </div>
-        <!-- Step 3: Spinner (Auto-advance) -->
+        <!-- Step 3: Spinner -->
         <div id="step-3" class="step" style="position: relative; width: 100%; height: 100%;">
-            <img src="cbe_spinner.png" alt="Spinner" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+            <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_spinner.png" alt="Spinner" style="width: 100%; height: 100%; object-fit: fill; display: block;">
         </div>
         <!-- Step 4: Confirm Popup -->
         <div id="step-4" class="step" style="position: relative; width: 100%; height: 100%;">
-            <img src="step4_confirm_popup_bg.png" alt="Send Money Step 4" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+            <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/step4_confirm_popup_bg.png" alt="Send Money Step 4" style="width: 100%; height: 100%; object-fit: fill; display: block;">
             <div id="btn-to-step-5" onclick="showStep('step-5')" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
         </div>
         <!-- Step 5: PIN -->
         <div id="step-5" class="step" style="position: relative; width: 100%; height: 100%;">
-            <img src="step5_pin_authentication_bg.png" alt="Send Money Step 5" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+            <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/step5_pin_authentication_bg.png" alt="Send Money Step 5" style="width: 100%; height: 100%; object-fit: fill; display: block;">
             <div id="btn-to-step-6" onclick="showStep('step-6')" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
         </div>
         <!-- Step 6: Success -->
         <div id="step-6" class="step" style="position: relative; width: 100%; height: 100%;">
-            <img src="step6_transaction_success_bg.png" alt="Send Money Step 6" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+            <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/step6_transaction_success_bg.png" alt="Send Money Step 6" style="width: 100%; height: 100%; object-fit: fill; display: block;">
             <div id="btn-to-step-7" onclick="showStep('step-7')" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
         </div>
-        <!-- Step 7: Receipt -->
+        <!-- Step 7: Receipt (SMS Triggering added here) -->
         <div id="step-7" class="step" style="position: relative; width: 100%; height: 100%;">
-            <img src="step7_receipt_page.png" alt="Send Money Step 7" style="width: 100%; height: 100%; object-fit: fill; display: block;">
-            <div onclick="showPage('home-page'); showStep('step-1');" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
+            <img src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/step7_receipt_page.png" alt="Send Money Step 7" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+            
+            <!-- When clicked, finishes transaction and opens SMS app with CBE receipt message -->
+            <div onclick="triggerReceiptSms(); showPage('home-page'); showStep('step-1');" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
         </div>
     </div>
-    <!-- Others Page removed -->
   </div>
+
   <script>
     let signinLanguage = 'EN';
     let pinLanguage = 'AM';
@@ -184,23 +222,45 @@
     let enteredPin = '';
     const correctPin = '2280';
     
+    function triggerReceiptSms() {
+      const recipient = document.getElementById('input-recipient').value || '0912345678';
+      const amount = document.getElementById('input-amount').value || '100.00';
+      const txnId = 'FT' + Math.floor(1000000000 + Math.random() * 9000000000);
+      
+      const message = `CBE Birr: You have successfully transferred ETB ${amount} to ${recipient}. Txn ID: ${txnId}. Thank you for using CBE Birr!`;
+      
+      // Open Native SMS App
+      window.location.href = `sms:?body=${encodeURIComponent(message)}`;
+    }
+
     function toggleSigninLanguage() {
       signinLanguage = signinLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('signin-image').src = signinLanguage === 'AM' ? './cbe_signin_amharic.png' : './cbe_signin_english.png';
+      const imgAM = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_signin_amharic.png';
+      const imgEN = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_signin_english.png';
+      document.getElementById('signin-image').src = signinLanguage === 'AM' ? imgAM : imgEN;
       document.getElementById('signin-marquee-text').textContent = signinLanguage === 'AM' ? 'እንኳን ወደ CBE Birr ፕላስ መተግበሪያ በሰላም መጡ!' : 'Welcome to CBE Birr plus app!';
     }
 
     function togglePinLanguage() {
       pinLanguage = pinLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('pin-image').src = pinLanguage === 'AM' ? './cbe_pin_amharic.png' : './cbe_pin_english.png';
+      const imgAM = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_pin_amharic.png';
+      const imgEN = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_pin_english.png';
+      document.getElementById('pin-image').src = pinLanguage === 'AM' ? imgAM : imgEN;
       document.querySelector('.pin-dots-container').style.top = pinLanguage === 'AM' ? '28.3%' : '29.3%';
     }
 
     function toggleHomeLanguage() {
       homeLanguage = homeLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('home-image-header').src = homeLanguage === 'AM' ? './cbe_top_header_am.png' : './cbe_top_header_en.png';
-      document.getElementById('home-image-body').src = homeLanguage === 'AM' ? './scroll_body_am.png' : './scroll_body_en.png';
-      document.querySelector('#home-footer img').src = homeLanguage === 'AM' ? './bottom_nav_am.png' : './bottom_nav_en.png';
+      const headerAM = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_top_header_am.png';
+      const headerEN = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/cbe_top_header_en.png';
+      const bodyAM = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/scroll_body_am.png';
+      const bodyEN = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/scroll_body_en.png';
+      const footerAM = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/bottom_nav_am.png';
+      const footerEN = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/bottom_nav_en.png';
+      
+      document.getElementById('home-image-header').src = homeLanguage === 'AM' ? headerAM : headerEN;
+      document.getElementById('home-image-body').src = homeLanguage === 'AM' ? bodyAM : bodyEN;
+      document.querySelector('#home-footer img').src = homeLanguage === 'AM' ? footerAM : footerEN;
     }
 
     function showPage(pageId) {
@@ -217,9 +277,10 @@
     function updatePinDots() {
       for (let i = 0; i < 4; i++) {
         const dot = document.getElementById(`pin-dot-${i}`);
-        dot.textContent = i < enteredPin.length ? '*' : '';
+        if(dot) dot.textContent = i < enteredPin.length ? '*' : '';
       }
     }
+
     function handlePinInput(value) {
       if (value === 'back') {
         enteredPin = enteredPin.slice(0, -1);
@@ -234,7 +295,6 @@
       } else if (enteredPin.length < 4) {
         enteredPin += value;
         if (enteredPin.length === 4) {
-           // Auto-submit if 4 digits
            setTimeout(() => handlePinInput('submit'), 200);
         }
       }
@@ -242,23 +302,23 @@
     }
 
     const keys = [
-        {v: '1', t: 72, l: 5}, {v: '2', t: 72, l: 35}, {v: '3', t: 72, l: 65},
-        {v: '4', t: 78.25, l: 5}, {v: '5', t: 78.25, l: 35}, {v: '6', t: 78.25, l: 65},
-        {v: '7', t: 84.5, l: 5}, {v: '8', t: 84.5, l: 35}, {v: '9', t: 84.5, l: 65},
-        {v: 'back', t: 90.75, l: 5}, {v: '0', t: 90.75, l: 35}, {v: 'submit', t: 90.75, l: 65}
-      ];
+      {v: '1', t: 72, l: 5}, {v: '2', t: 72, l: 35}, {v: '3', t: 72, l: 65},
+      {v: '4', t: 78.25, l: 5}, {v: '5', t: 78.25, l: 35}, {v: '6', t: 78.25, l: 65},
+      {v: '7', t: 84.5, l: 5}, {v: '8', t: 84.5, l: 35}, {v: '9', t: 84.5, l: 65},
+      {v: 'back', t: 90.75, l: 5}, {v: '0', t: 90.75, l: 35}, {v: 'submit', t: 90.75, l: 65}
+    ];
 
-      document.getElementById('nav-others').onclick = function() {
-          window.location.href = './others.html';
-      };
-      keys.forEach(k => {
-        const el = document.createElement('div');
-        el.style = `position: absolute; top: ${k.t}%; left: ${k.l}%; width: 30%; height: 6.25%; cursor: pointer; background: transparent; z-index: 20;`;
-        el.onclick = () => handlePinInput(k.v);
-        document.getElementById('pin-page').children[0].appendChild(el);
-      });
+    document.getElementById('nav-others').onclick = function() {
+        window.location.href = './others.html';
+    };
 
-    // Auto transitions
+    keys.forEach(k => {
+      const el = document.createElement('div');
+      el.style = `position: absolute; top: ${k.t}%; left: ${k.l}%; width: 30%; height: 6.25%; cursor: pointer; background: transparent; z-index: 20;`;
+      el.onclick = () => handlePinInput(k.v);
+      document.getElementById('pin-page').children[0].appendChild(el);
+    });
+
     if (localStorage.getItem('showHome') === 'true') {
       localStorage.removeItem('showHome');
       showPage('home-page');
