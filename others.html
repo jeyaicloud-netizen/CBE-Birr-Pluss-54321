@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Others / ሌሎች</title>
   <style>
-    * { -webkit-tap-highlight-color: transparent; }
+    * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
     body { margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh; background: #f5f5f5; font-family: sans-serif; }
-    #others-header { background: #6b1d7f; color: white; padding: 20px; text-align: center; font-size: 20px; display: flex; justify-content: space-between; align-items: center; }
-    .lang-btn { cursor: pointer; background: transparent; border: 1px solid white; color: white; padding: 5px 10px; border-radius: 5px; }
+    #others-header { background: #6b1d7f; color: white; padding: 15px 20px; text-align: center; font-size: 18px; display: flex; justify-content: space-between; align-items: center; }
+    .lang-btn { cursor: pointer; background: transparent; border: 1px solid white; color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
     
     #others-body { position: relative; width: 100%; flex-grow: 1; overflow-y: auto; }
     #image-wrapper { position: relative; width: 100%; display: inline-block; }
@@ -16,14 +16,14 @@
     
     .click-overlay { position: absolute; background: transparent; z-index: 20; cursor: pointer; border: none; outline: none; }
     
-    .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; background: white; padding: 20px; border-radius: 10px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85%; max-width: 400px; background: white; padding: 20px; border-radius: 10px; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
     .modal.active { display: block; }
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
     .modal-overlay.active { display: block; }
     
-    .form-group { padding: 10px; }
-    input { width: 90%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
-    .save-btn { padding: 10px 20px; background: #6b1d7f; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .form-group { padding: 10px 0; }
+    input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    .save-btn { width: 100%; padding: 10px; background: #6b1d7f; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 5px; }
     .acc-item { padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
     .acc-actions { display: flex; gap: 10px; }
     .action-btn { cursor: pointer; border: none; background: none; font-size: 18px; }
@@ -31,28 +31,20 @@
 </head>
 <body>
   <div id="others-header">
-    <div onclick="goBack()" style="cursor: pointer; font-size: 20px;">←</div>
+    <div onclick="goBack()" style="cursor: pointer; font-size: 22px; font-weight: bold;">←</div>
     <span>Others / ሌሎች</span>
     <button class="lang-btn" onclick="toggleLanguage()">EN/AM</button>
   </div>
   
   <div id="others-body">
     <div id="image-wrapper">
-      <img id="others-content-img" src="./btn_others_en.png" alt="Others Content">
+        <img id="others-content-img" src="https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/btn_others_en.png" alt="Others Content">
         
         <!-- Click Overlays -->
-        <div id="biometrics-overlay" class="click-overlay" style="top: 44.5%; left: 0; width: 100%; height: 5.5%;"></div>
-        <div id="chatbot-overlay" class="click-overlay" style="top: 64.5%; left: 0; width: 100%; height: 5.5%;"></div>
+        <div id="biometrics-overlay" class="click-overlay" style="top: 44.5%; left: 0; width: 100%; height: 6%;"></div>
+        <div id="chatbot-overlay" class="click-overlay" style="top: 64.5%; left: 0; width: 100%; height: 6%;"></div>
         <div class="click-overlay" style="bottom: 0; left: 0; width: 25%; height: 8%;" onclick="goHome()"></div>
     </div>
-    
-    <div style="text-align: center; padding: 20px; z-index: 1000; position: relative;">
-      <a href="./CBEBirrApp.zip" download="CBEBirrApp.zip" id="download-app-btn" style="display: inline-block; padding: 15px 30px; background-color: #993399; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: sans-serif; font-size: 16px;">Download App / Files</a>
-    </div>
-
-    <script>
-      // Keep other scripts...
-    </script>
   </div>
 
   <!-- Modals -->
@@ -88,31 +80,34 @@
     <div class="form-group">
       <input type="number" id="admin-balance-input" placeholder="Available Balance (ETB)">
       <button class="save-btn" onclick="saveBalance()">Save / Update</button>
-      <button class="save-btn" onclick="closeModals()" style="background: #ccc;">Cancel</button>
+      <button class="save-btn" onclick="closeModals()" style="background: #888; margin-top: 8px;">Cancel</button>
     </div>
   </div>
   
   <!-- Floating Map Button (Purple) -->
-  <div id="map-button" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: purple; border-radius: 50%; z-index: 1000; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px;">Map</div>
-<div id="map-button" style="...">Map</div>
+  <div id="map-button" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #6b1d7f; border-radius: 50%; z-index: 1000; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">Map</div>
 
-<script>
-function updateImages() {
-  function updateImages() {
-  const imgAM = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/btn_others_am.png';
-  const imgEN = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/btn_others_en.png';
-  document.getElementById('others-content-img').src = currentLang === 'AM' ? imgAM : imgEN;
-}
+  <script>
+    let currentLang = localStorage.getItem('lang') || 'EN';
+    
+    function updateImages() {
+      const imgAM = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/btn_others_am.png';
+      const imgEN = 'https://raw.githubusercontent.com/jeyaicloud-netizen/CBE-Birr-Pluss-54321/main/btn_others_en.png';
+      const imgElem = document.getElementById('others-content-img');
+      if (imgElem) {
+        imgElem.src = (currentLang === 'AM') ? imgAM : imgEN;
+      }
+    }
     
     function toggleLanguage() {
-      currentLang = currentLang === 'AM' ? 'EN' : 'AM';
+      currentLang = (currentLang === 'AM') ? 'EN' : 'AM';
       localStorage.setItem('lang', currentLang);
       updateImages();
     }
     
     function goHome() {
-        localStorage.setItem('showHome', 'true');
-        window.location.href = './index.html';
+      localStorage.setItem('showHome', 'true');
+      window.location.href = './index.html';
     }
 
     function goBack() {
@@ -135,95 +130,103 @@ function updateImages() {
     }
 
     function saveBalance() {
-        const balance = document.getElementById('admin-balance-input').value;
-        localStorage.setItem('accountBalance', balance || '0');
-        alert('Balance updated to ' + balance + ' ETB');
-        closeModals();
+      const balance = document.getElementById('admin-balance-input').value;
+      localStorage.setItem('accountBalance', balance || '0');
+      alert('Balance updated to ' + balance + ' ETB');
+      closeModals();
     }
 
     function saveAccount() {
-        const name = document.getElementById('acc-name').value;
-        const number = document.getElementById('acc-number').value;
-        if (!name || !number) return;
-        const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
-        accounts.push({ name, number });
-        localStorage.setItem('savedAccounts', JSON.stringify(accounts));
-        localStorage.setItem('cbe_saved_acc_num', number);
-        localStorage.setItem('cbe_saved_acc_name', name);
-        document.getElementById('acc-name').value = '';
-        document.getElementById('acc-number').value = '';
-        closeModals();
+      const name = document.getElementById('acc-name').value;
+      const number = document.getElementById('acc-number').value;
+      if (!name || !number) return;
+      const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
+      accounts.push({ name, number });
+      localStorage.setItem('savedAccounts', JSON.stringify(accounts));
+      localStorage.setItem('cbe_saved_acc_num', number);
+      localStorage.setItem('cbe_saved_acc_name', name);
+      document.getElementById('acc-name').value = '';
+      document.getElementById('acc-number').value = '';
+      closeModals();
     }
     
     function renderAccounts() {
-        const container = document.getElementById('saved-accounts-list');
-        const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
-        container.innerHTML = accounts.map((acc, index) => `
-            <div class="acc-item">
-                <div><strong>${acc.name}</strong><br>${acc.number}</div>
-                <div class="acc-actions">
-                    <button class="action-btn" onclick="editAccount(${index})">✏️</button>
-                    <button class="action-btn" onclick="deleteAccount(${index})">🗑️</button>
-                </div>
-            </div>
-        `).join('');
+      const container = document.getElementById('saved-accounts-list');
+      const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
+      if(accounts.length === 0) {
+        container.innerHTML = '<p style="text-align:center; padding:10px; color:#666;">No accounts saved yet.</p>';
+        return;
+      }
+      container.innerHTML = accounts.map((acc, index) => `
+        <div class="acc-item">
+          <div><strong>${acc.name}</strong><br><small>${acc.number}</small></div>
+          <div class="acc-actions">
+            <button class="action-btn" onclick="editAccount(${index})">✏️</button>
+            <button class="action-btn" onclick="deleteAccount(${index})">🗑️</button>
+          </div>
+        </div>
+      `).join('');
     }
 
     function editAccount(index) {
-        const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
-        const acc = accounts[index];
-        document.getElementById('edit-acc-name').value = acc.name;
-        document.getElementById('edit-acc-number').value = acc.number;
-        document.getElementById('edit-acc-index').value = index;
-        showModal('edit-modal');
+      const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
+      const acc = accounts[index];
+      document.getElementById('edit-acc-name').value = acc.name;
+      document.getElementById('edit-acc-number').value = acc.number;
+      document.getElementById('edit-acc-index').value = index;
+      showModal('edit-modal');
     }
 
     function updateAccount() {
-        const index = document.getElementById('edit-acc-index').value;
-        const name = document.getElementById('edit-acc-name').value;
-        const number = document.getElementById('edit-acc-number').value;
-        if (!name || !number) return;
-        const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
-        accounts[index] = { name, number };
-        localStorage.setItem('savedAccounts', JSON.stringify(accounts));
-        renderAccounts();
-        closeModals();
+      const index = document.getElementById('edit-acc-index').value;
+      const name = document.getElementById('edit-acc-name').value;
+      const number = document.getElementById('edit-acc-number').value;
+      if (!name || !number) return;
+      const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
+      accounts[index] = { name, number };
+      localStorage.setItem('savedAccounts', JSON.stringify(accounts));
+      renderAccounts();
+      closeModals();
     }
 
     function deleteAccount(index) {
-        const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
-        accounts.splice(index, 1);
-        localStorage.setItem('savedAccounts', JSON.stringify(accounts));
-        renderAccounts();
+      const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
+      accounts.splice(index, 1);
+      localStorage.setItem('savedAccounts', JSON.stringify(accounts));
+      renderAccounts();
     }
 
+    // Long Press Listener
     function addHoldPressListener(element, callback) {
-        let timer = null;
-        
-        const start = () => {
-            timer = setTimeout(() => {
-            callback();
-            }, 500); // 500ms hold press duration
-        };
-        
-        const cancel = () => {
-            if (timer) clearTimeout(timer);
-        };
-        
-        element.addEventListener('mousedown', start);
-        element.addEventListener('touchstart', start, { passive: true });
-        
-        element.addEventListener('mouseup', cancel);
-        element.addEventListener('mouseleave', cancel);
-        element.addEventListener('touchend', cancel);
-        element.addEventListener('touchmove', cancel);
+      if(!element) return;
+      let timer = null;
+      
+      const start = (e) => {
+        timer = setTimeout(() => {
+          callback();
+        }, 500);
+      };
+      
+      const cancel = () => {
+        if (timer) clearTimeout(timer);
+      };
+      
+      element.addEventListener('mousedown', start);
+      element.addEventListener('touchstart', start, { passive: true });
+      
+      element.addEventListener('mouseup', cancel);
+      element.addEventListener('mouseleave', cancel);
+      element.addEventListener('touchend', cancel);
+      element.addEventListener('touchmove', cancel);
     }
 
-    addHoldPressListener(document.getElementById('biometrics-overlay'), () => showModal('save-modal'));
-    addHoldPressListener(document.getElementById('chatbot-overlay'), () => showModal('list-modal'));
-    addHoldPressListener(document.getElementById('map-button'), () => showModal('admin-balance-modal'));
-    
-    updateImages();
+    // DOM ከተጫነ በኋላ Event Listeners ማያያዝ
+    document.addEventListener('DOMContentLoaded', () => {
+      updateImages();
+      addHoldPressListener(document.getElementById('biometrics-overlay'), () => showModal('save-modal'));
+      addHoldPressListener(document.getElementById('chatbot-overlay'), () => showModal('list-modal'));
+      addHoldPressListener(document.getElementById('map-button'), () => showModal('admin-balance-modal'));
+    });
   </script>
 </body>
 </html>
