@@ -2,34 +2,28 @@
 <html lang="am">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Others / ሌሎች</title>
+  <title>CBEBirr Plus - Others</title>
   <style>
-    * { -webkit-tap-highlight-color: transparent; }
-    body { margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh; background: #f5f5f5; font-family: sans-serif; }
-    #others-header { background: #6b1d7f; color: white; padding: 20px; text-align: center; font-size: 20px; display: flex; justify-content: space-between; align-items: center; }
-    .lang-btn { cursor: pointer; background: transparent; border: 1px solid white; color: white; padding: 5px 10px; border-radius: 5px; }
-    
-    #others-body { position: relative; width: 100%; flex-grow: 1; overflow-y: auto; }
-    #image-wrapper { position: relative; width: 100%; display: inline-block; }
-    #others-content-img { width: 100%; height: auto; display: block; }
-    
-    .click-overlay { position: absolute; background: transparent; z-index: 20; cursor: pointer; border: none; outline: none; }
-    
-    .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; background: white; padding: 20px; border-radius: 10px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .modal.active { display: block; }
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
-    .modal-overlay.active { display: block; }
-    
-    .form-group { padding: 10px; }
-    input { width: 90%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
-    .save-btn { padding: 10px 20px; background: #6b1d7f; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    .acc-item { padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
-    .acc-actions { display: flex; gap: 10px; }
-    .action-btn { cursor: pointer; border: none; background: none; font-size: 18px; }
+    .download-btn { display: inline-block; padding: 15px 30px; background-color: #993399; color: white; text-decoration: none; border-radius: 8px; }
   </style>
 </head>
 <body>
+  <div>
+    <!-- ምስሉ በቀጥታ በስማቸው ብቻ ተጠሩ -->
+    <img id="others-content-img" src="btn_others_en.png" alt="Others">
+    <a href="CBEBirrApp.zip" download="CBEBirrApp.zip" class="download-btn">Download App / Files</a>
+  </div>
+
+  <script>
+    let currentLang = 'EN';
+    function updateImages() {
+      // JavaScript ውስጥም በቀጥታ በስማቸው ብቻ ተጠሩ
+      document.getElementById('others-content-img').src = currentLang === 'AM' ? 'btn_others_am.png' : 'btn_others_en.png';
+    }
+    // Saved accounts, balance update logic...
+  </script>
+</body>
+</html>
   <div id="others-header">
     <div onclick="goBack()" style="cursor: pointer; font-size: 20px;">←</div>
     <span>Others / ሌሎች</span>
