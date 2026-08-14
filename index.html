@@ -88,7 +88,7 @@
     <!-- Sign-In Page -->
     <div id="signin-page" class="page">
       <div style="position: relative; width: 100%; height: 100%;">
-        <img id="signin-image" src="./cbe_signin_english.png" alt="Sign-In Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+        <img id="signin-image" src="cbe_signin_english.png" alt="Sign-In Screen" style="width: 100%; height: 100%; object-fit: fill; display: block;">
         <!-- Masks to cover background text -->
         <div style="position: absolute; top: 14%; left: 5%; width: 90%; height: 6%; background: #fff; z-index: 98;"></div>
         <div style="position: absolute; top: 21%; left: 5%; width: 90%; height: 6%; background: #fff; z-index: 98;"></div>
@@ -126,13 +126,13 @@
       <div id="home-body" style="position: absolute !important; top: 0 !important; bottom: 0 !important; left: 0 !important; right: 0 !important; overflow-y: scroll !important; z-index: 10 !important;">
         <div style="position: relative; width: 100%; max-width: 480px; margin: 0 auto;">
             <img id="home-image-body" src="scroll_body_en.png" alt="Body" style="width: 100%; display: block; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; pointer-events: none;">
-            <div onclick="window.location.href='./to_cbe_account.html'" ontouchend="window.location.href='./to_cbe_account.html'" style="position: absolute; top: 31%; left: 51%; width: 22%; height: 8.5%; z-index: 999; display: block; background: rgba(0,0,0,0); border: none; outline: none; -webkit-tap-highlight-color: transparent; cursor: pointer;"></div>
+            <div onclick="window.location.href='to_cbe_account.html'" ontouchend="window.location.href='to_cbe_account.html'" style="position: absolute; top: 31%; left: 51%; width: 22%; height: 8.5%; z-index: 999; display: block; background: rgba(0,0,0,0); border: none; outline: none; -webkit-tap-highlight-color: transparent; cursor: pointer;"></div>
         </div>
       </div>
       
       <div id="home-footer">
         <img src="bottom_nav_en.png" alt="Bottom Nav" style="width: 100% !important; height: auto !important; display: block !important; margin: 0 !important; padding: 0 !important; pointer-events: auto;">
-        <div id="nav-others" onclick="window.location.href='./others.html'" style="position: absolute; bottom: 0; right: 0; width: 25%; height: 100%; cursor: pointer; background: transparent; z-index: 101; pointer-events: auto;"></div>
+        <div id="nav-others" onclick="window.location.href='others.html'" style="position: absolute; bottom: 0; right: 0; width: 25%; height: 100%; cursor: pointer; background: transparent; z-index: 101; pointer-events: auto;"></div>
       </div>
     </div>
     <!-- Send Money Flow -->
@@ -186,21 +186,21 @@
     
     function toggleSigninLanguage() {
       signinLanguage = signinLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('signin-image').src = signinLanguage === 'AM' ? './cbe_signin_amharic.png' : './cbe_signin_english.png';
+      document.getElementById('signin-image').src = signinLanguage === 'AM' ? 'cbe_signin_amharic.png' : 'cbe_signin_english.png';
       document.getElementById('signin-marquee-text').textContent = signinLanguage === 'AM' ? 'እንኳን ወደ CBE Birr ፕላስ መተግበሪያ በሰላም መጡ!' : 'Welcome to CBE Birr plus app!';
     }
 
     function togglePinLanguage() {
       pinLanguage = pinLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('pin-image').src = pinLanguage === 'AM' ? './cbe_pin_amharic.png' : './cbe_pin_english.png';
+      document.getElementById('pin-image').src = pinLanguage === 'AM' ? 'cbe_pin_amharic.png' : 'cbe_pin_english.png';
       document.querySelector('.pin-dots-container').style.top = pinLanguage === 'AM' ? '28.3%' : '29.3%';
     }
 
     function toggleHomeLanguage() {
       homeLanguage = homeLanguage === 'AM' ? 'EN' : 'AM';
-      document.getElementById('home-image-header').src = homeLanguage === 'AM' ? './cbe_top_header_am.png' : './cbe_top_header_en.png';
-      document.getElementById('home-image-body').src = homeLanguage === 'AM' ? './scroll_body_am.png' : './scroll_body_en.png';
-      document.querySelector('#home-footer img').src = homeLanguage === 'AM' ? './bottom_nav_am.png' : './bottom_nav_en.png';
+      document.getElementById('home-image-header').src = homeLanguage === 'AM' ? 'cbe_top_header_am.png' : 'cbe_top_header_en.png';
+      document.getElementById('home-image-body').src = homeLanguage === 'AM' ? 'scroll_body_am.png' : 'scroll_body_en.png';
+      document.querySelector('#home-footer img').src = homeLanguage === 'AM' ? 'bottom_nav_am.png' : 'bottom_nav_en.png';
     }
 
     function showPage(pageId) {
@@ -249,7 +249,7 @@
       ];
 
       document.getElementById('nav-others').onclick = function() {
-          window.location.href = './others.html';
+          window.location.href = 'others.html';
       };
       keys.forEach(k => {
         const el = document.createElement('div');
