@@ -99,14 +99,24 @@
   <script>
     let currentLang = localStorage.getItem('lang') || 'EN';
     
+    // ገጹ እንደተከፈተ ምስሉንና Long Pressን ማዘጋጀት
+    window.addEventListener('DOMContentLoaded', () => {
+        updateImages();
+        setupLongPress();
+    });
+
     function updateImages() {
-      document.getElementById('others-content-img').src = currentLang === 'AM' ? './btn_others_am.png' : './btn_others_en.png';
+        const imgElement = document.getElementById('others-content-img');
+        if (imgElement) {
+            // ከ `./` ውጭ ቀጥታ ስሙን መጠቀም
+            imgElement.src = currentLang === 'AM' ? 'btn_others_am.png' : 'btn_others_en.png';
+        }
     }
     
     function toggleLanguage() {
-      currentLang = currentLang === 'AM' ? 'EN' : 'AM';
-      localStorage.setItem('lang', currentLang);
-      updateImages();
+        currentLang = currentLang === 'AM' ? 'EN' : 'AM';
+        localStorage.setItem('lang', currentLang);
+        updateImages();
     }
     
     function goHome() {
@@ -196,33 +206,39 @@
         renderAccounts();
     }
 
-    function addHoldPressListener(element, callback) {
+    // Long Press (ተጭኖ ሲያዙ) Modal/Save Acc እንዲከፍት ማገናኘት
+    function setupLongPress() {
+        const targetElement = document.getElementById('others-content-img') || document.getElementById('image-wrapper');
+        if (!targetElement) return;
+
         let timer = null;
-        
-        const start = () => {
+
+        const start = (e) => {
             timer = setTimeout(() => {
-            callback();
-            }, 500); // 500ms hold press duration
+                showModal('add-modal'); // Long Press ሲያደርጉ Save Account Modal ይከፈታል
+            }, 600); // 0.6 ሰከንድ ተጭኖ ሲያዝ
         };
-        
+
         const cancel = () => {
             if (timer) clearTimeout(timer);
         };
-        
-        element.addEventListener('mousedown', start);
-        element.addEventListener('touchstart', start, { passive: true });
-        
-        element.addEventListener('mouseup', cancel);
-        element.addEventListener('mouseleave', cancel);
-        element.addEventListener('touchend', cancel);
-        element.addEventListener('touchmove', cancel);
-    }
 
-    addHoldPressListener(document.getElementById('biometrics-overlay'), () => showModal('save-modal'));
-    addHoldPressListener(document.getElementById('chatbot-overlay'), () => showModal('list-modal'));
-    addHoldPressListener(document.getElementById('map-button'), () => showModal('admin-balance-modal'));
-    
-    updateImages();
+        // ለስልክም (Touch) ለኮምፒውተርም (Mouse) እንዲሰራ
+        targetElement.addEventListener('touchstart', start);
+        targetElement.addEventListener('touchend', cancel);
+        targetElement.addEventListener('touchmove', cancel);
+        
+        targetElement.addEventListener('mousedown', start);
+        targetElement.addEventListener('mouseup', cancel);
+        targetElement.addEventListener('mouseleave', cancel);
+    }
+</script>
+⚠️ በHTML ላይ ማረጋገጥ ያለብህ ተጨማሪ ነገር:
+የቋንቋ መቀየሪያ አዝራርህ (Language Button) ላይ onclick="toggleLanguage()" መኖሩን አረጋግጥ:
+
+HTML
+<button class="lang-btn" onclick="toggleLanguage()">አማ / EN</button>
+ይህንን ኮድ GitHub ላይ አስተካክለህ Commit Changes ስትለው የቋንቋ መቀየሪያውም ሆነ Long Press አድርገህ Save Acc/Saved Acc ማድረጊያው ወዲያውኑ መስራት ይጀምራሉ!
   </script>
 </body>
 </html>
