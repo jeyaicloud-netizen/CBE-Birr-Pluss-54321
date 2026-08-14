@@ -2,36 +2,24 @@
 <html lang="am">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CBEBirr Plus - Others</title>
+  <title>CBEBirr Plus</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-    body { background-color: #f5f5f5; }
-    .mobile-frame { width: 100vw; height: 100vh; position: relative; overflow-y: auto; }
-    .content-wrapper { position: relative; width: 100%; max-width: 480px; margin: 0 auto; }
-    .btn-others { width: 100%; display: block; }
-    .download-container { text-align: center; padding: 40px 20px; z-index: 1000; position: relative; }
-    .download-btn { display: inline-block; padding: 15px 30px; background-color: #993399; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; }
+    .page { display: none; }
+    .page.active { display: flex; flex-direction: column; height: 100vh; }
   </style>
 </head>
 <body>
-  <div class="mobile-frame">
-    <div class="content-wrapper">
-      <!-- የምስል ፋይሎች በትክክል `./` ተጠቅመው ተቀምጠዋል -->
-      <img id="others-image" src="./btn_others_en.png" alt="Others Menu" class="btn-others">
-      
-      <!-- Download Button -->
-      <div class="download-container">
-        <a href="./CBEBirrApp.zip" download="CBEBirrApp.zip" class="download-btn">Download App / Files</a>
-      </div>
-    </div>
+  <div id="signin-page" class="page active">
+    <img id="signin-image" src="/cbe_signin_english.png" alt="Sign-In" style="width: 100%;">
+    <button onclick="toggleSigninLanguage()">Toggle AM/EN</button>
   </div>
 
   <script>
-    // ወደ መነሻ ገጽ ለመመለስ
-    function goHome() {
-        localStorage.setItem('showHome', 'true');
-        window.location.href = './index.html';
+    let signinLanguage = 'EN';
+    function toggleSigninLanguage() {
+      signinLanguage = signinLanguage === 'AM' ? 'EN' : 'AM';
+      document.getElementById('signin-image').src = signinLanguage === 'AM' ? '/cbe_signin_amharic.png' : '/cbe_signin_english.png';
     }
   </script>
 </body>
