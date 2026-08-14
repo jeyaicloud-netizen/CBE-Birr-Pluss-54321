@@ -2,169 +2,50 @@
 <html lang="am">
 <head>
   <meta charset="UTF-8">
-  <title>CBEBirr Plus - Others</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBEBirr Plus</title>
   <style>
-    .download-btn { display: inline-block; padding: 15px 30px; background-color: #993399; color: white; text-decoration: none; border-radius: 8px; }
+    body { margin: 0; padding: 0; font-family: sans-serif; background: #f5f5f5; }
+    .mobile-frame { width: 100%; max-width: 480px; margin: 0 auto; background: white; min-height: 100vh; position: relative; }
+    
+    /* የድሮው ምስል እና የአዲሱ ዝርዝር ቅንብር */
+    #image-wrapper { width: 100%; position: relative; }
+    #others-content-img { width: 100%; display: block; }
+    
+    .download-container { text-align: center; padding: 15px; }
+    .download-btn { display: inline-block; padding: 10px 20px; background-color: #993399; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+    
+    /* የዝርዝር (List) ስታይል */
+    .list-container { padding: 10px; }
+    .list-item { padding: 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
   </style>
 </head>
 <body>
-  <div>
-    <!-- ምስሉ በቀጥታ በስማቸው ብቻ ተጠሩ -->
-    <img id="others-content-img" src="btn_others_en.png" alt="Others">
-    <a href="CBEBirrApp.zip" download="CBEBirrApp.zip" class="download-btn">Download App / Files</a>
-  </div>
-
-  <script>
-    let currentLang = 'EN';
-    function updateImages() {
-      // JavaScript ውስጥም በቀጥታ በስማቸው ብቻ ተጠሩ
-      document.getElementById('others-content-img').src = currentLang === 'AM' ? 'btn_others_am.png' : 'btn_others_en.png';
-    }
-    // Saved accounts, balance update logic...
-  </script>
-</body>
-</html>
-  <div id="others-header">
-    <div onclick="goBack()" style="cursor: pointer; font-size: 20px;">←</div>
-    <span>Others / ሌሎች</span>
-    <button class="lang-btn" onclick="toggleLanguage()">EN/AM</button>
-  </div>
-  
-  <div id="others-body">
+  <div class="mobile-frame">
+    <!-- ምስሉ -->
     <div id="image-wrapper">
-        <!-- ምስሎች በቀጥታ በስም ተጠሩ -->
-        <img id="others-content-img" src="btn_others_en.png" alt="Others Content">
-        
-        <div id="biometrics-overlay" class="click-overlay" style="top: 44.5%; left: 0; width: 100%; height: 5.5%;"></div>
-        <div id="chatbot-overlay" class="click-overlay" style="top: 64.5%; left: 0; width: 100%; height: 5.5%;"></div>
-        <div class="click-overlay" style="bottom: 0; left: 0; width: 25%; height: 8%;" onclick="goHome()"></div>
+        <img id="others-content-img" src="btn_others_en.png" alt="Others">
     </div>
     
-    <div style="text-align: center; padding: 20px; z-index: 1000; position: relative;">
-      <!-- Download link በቀጥታ በስም ተጠራ -->
-      <a href="CBEBirrApp.zip" download="CBEBirrApp.zip" id="download-app-btn" style="display: inline-block; padding: 15px 30px; background-color: #993399; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-family: sans-serif; font-size: 16px;">Download App / Files</a>
+    <!-- Download Button -->
+    <div class="download-container">
+      <a href="CBEBirrApp.zip" download="CBEBirrApp.zip" class="download-btn">Download App</a>
     </div>
-  </div>
 
-  <div class="modal-overlay" id="modal-overlay" onclick="closeModals()"></div>
-  
-  <div class="modal" id="save-modal">
-    <h3>Save Account</h3>
-    <div class="form-group">
-      <input type="text" id="acc-name" placeholder="Account Name">
-      <input type="text" id="acc-number" placeholder="Account Number">
-      <button class="save-btn" onclick="saveAccount()">Save Account</button>
+    <!-- ዝርዝር (List) -->
+    <div class="list-container">
+      <div class="list-item">Feedback <span>></span></div>
+      <div class="list-item">Change PIN <span>></span></div>
+      <!-- ሌሎች ዝርዝሮችን እዚህ ያክሉ -->
     </div>
   </div>
-  
-  <div class="modal" id="list-modal">
-    <h3>Saved Accounts</h3>
-    <div id="saved-accounts-list"></div>
-  </div>
-  
-  <div class="modal" id="edit-modal">
-    <h3>Edit Account</h3>
-    <div class="form-group">
-      <input type="text" id="edit-acc-name" placeholder="Account Name">
-      <input type="text" id="edit-acc-number" placeholder="Account Number">
-      <input type="hidden" id="edit-acc-index">
-      <button class="save-btn" onclick="updateAccount()">Update Account</button>
-    </div>
-  </div>
-
-  <div class="modal" id="admin-balance-modal">
-    <h3>Set Account Balance</h3>
-    <div class="form-group">
-      <input type="number" id="admin-balance-input" placeholder="Available Balance (ETB)">
-      <button class="save-btn" onclick="saveBalance()">Save / Update</button>
-    </div>
-  </div>
-  
-  <div id="map-button" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: purple; border-radius: 50%; z-index: 1000; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px;">Map</div>
 
   <script>
-    let currentLang = localStorage.getItem('lang') || 'EN';
-    
-    function updateImages() {
-      // ምስሎችን በቀጥታ በስም ተጠሩ
-      document.getElementById('others-content-img').src = currentLang === 'AM' ? 'btn_others_am.png' : 'btn_others_en.png';
-    }
-    
+    // ቋንቋ መቀያየሪያ
     function toggleLanguage() {
-      currentLang = currentLang === 'AM' ? 'EN' : 'AM';
-      localStorage.setItem('lang', currentLang);
-      updateImages();
+      const img = document.getElementById('others-content-img');
+      img.src = img.src.includes('en') ? 'btn_others_am.png' : 'btn_others_en.png';
     }
-    
-    function goHome() {
-        window.location.href = 'index.html';
-    }
-
-    function goBack() {
-        window.history.back();
-    }
-    
-    function showModal(id) {
-      document.getElementById('modal-overlay').classList.add('active');
-      document.getElementById(id).classList.add('active');
-      if(id === 'list-modal') renderAccounts();
-    }
-    
-    function closeModals() {
-      document.getElementById('modal-overlay').classList.remove('active');
-      document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
-    }
-
-    function saveBalance() {
-        const balance = document.getElementById('admin-balance-input').value;
-        localStorage.setItem('accountBalance', balance || '0');
-        alert('Balance updated');
-        closeModals();
-    }
-
-    function saveAccount() {
-        const name = document.getElementById('acc-name').value;
-        const number = document.getElementById('acc-number').value;
-        if (!name || !number) return;
-        const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
-        accounts.push({ name, number });
-        localStorage.setItem('savedAccounts', JSON.stringify(accounts));
-        closeModals();
-    }
-    
-    function renderAccounts() {
-        const container = document.getElementById('saved-accounts-list');
-        const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
-        container.innerHTML = accounts.map((acc, index) => `
-            <div class="acc-item">
-                <div><strong>${acc.name}</strong><br>${acc.number}</div>
-                <div class="acc-actions">
-                    <button class="action-btn" onclick="deleteAccount(${index})">🗑️</button>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function deleteAccount(index) {
-        const accounts = JSON.parse(localStorage.getItem('savedAccounts') || '[]');
-        accounts.splice(index, 1);
-        localStorage.setItem('savedAccounts', JSON.stringify(accounts));
-        renderAccounts();
-    }
-
-    function addHoldPressListener(el, cb) {
-        let timer;
-        el.onmousedown = () => timer = setTimeout(cb, 500);
-        el.onmouseup = () => clearTimeout(timer);
-        el.ontouchstart = () => timer = setTimeout(cb, 500);
-        el.ontouchend = () => clearTimeout(timer);
-    }
-
-    addHoldPressListener(document.getElementById('biometrics-overlay'), () => showModal('save-modal'));
-    addHoldPressListener(document.getElementById('chatbot-overlay'), () => showModal('list-modal'));
-    addHoldPressListener(document.getElementById('map-button'), () => showModal('admin-balance-modal'));
-    
-    updateImages();
   </script>
 </body>
 </html>
