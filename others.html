@@ -99,31 +99,41 @@
   <script>
     let currentLang = localStorage.getItem('lang') || 'EN';
     
-    // ገጹ እንደተከፈተ ምስሉንና Long Pressን ማዘጋጀት
-    window.addEventListener('DOMContentLoaded', () => {
-        updateImages();
-        setupLongPress();
-    });
+// ገጹ እንደተከፈተ ቋንቋውን ማስተካከል
+window.addEventListener('DOMContentLoaded', () => {
+    updateImages();
+    setupLongPress();
+});
 
-    function updateImages() {
-        const imgElement = document.getElementById('others-content-img');
-        if (imgElement) {
-            // ከ `./` ውጭ ቀጥታ ስሙን መጠቀም
-            imgElement.src = currentLang === 'AM' ? 'btn_others_am.png' : 'btn_others_en.png';
+function updateImages() {
+    const imgElement = document.getElementById('others-content-img');
+    let currentLang = localStorage.getItem('lang') || 'AM'; // Default ን ወደ AM አድርገነዋል
+
+    if (imgElement) {
+        if (currentLang === 'AM') {
+            imgElement.src = 'btn_others_am.png';
+        } else {
+            imgElement.src = 'btn_others_en.png';
         }
     }
-    
-    function toggleLanguage() {
-        currentLang = currentLang === 'AM' ? 'EN' : 'AM';
-        localStorage.setItem('lang', currentLang);
-        updateImages();
-    }
-    
-    function goHome() {
-        localStorage.setItem('showHome', 'true');
-        window.location.href = './index.html';
-    }
+}
 
+function toggleLanguage() {
+    let currentLang = localStorage.getItem('lang') || 'AM';
+    
+    // ቋንቋውን መቀየር (AM ከሆነ EN፣ EN ከሆነ AM)
+    if (currentLang === 'AM') {
+        currentLang = 'EN';
+    } else {
+        currentLang = 'AM';
+    }
+    
+    // አዲሱን ቋንቋ ማስቀመጥ
+    localStorage.setItem('lang', currentLang);
+    
+    // ምስሉን ወዲያውኑ በስክሪኑ ላይ ማቀየር
+    updateImages();
+}
     function goBack() {
       if (window.history.length > 1) {
         window.history.back();
