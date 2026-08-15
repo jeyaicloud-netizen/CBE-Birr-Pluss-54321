@@ -3,22 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Send Money</title>
+  <title>Confirmation</title>
   <style>
-    body { margin: 0; padding: 0; }
-    .page { position: relative; width: 100%; max-width: 480px; margin: 0 auto; }
-    img { width: 100%; display: block; }
+    body { margin: 0; padding: 0; height: 100vh; min-height: 640px; overflow-y: auto; font-family: sans-serif; }
+    .page { position: relative; width: 100%; max-width: 480px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+    .step { display: none; width: 100%; flex-shrink: 0; }
+    .step.active { display: block; }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- ምስሎቹ በቀጥታ ስማቸው ብቻ -->
-    <img src="step1_send_money_bg.png" alt="Send Money">
-    <!-- ወደ index መመለሻ -->
-    <div onclick="window.location.href='index.html'" style="position: absolute; top: 2%; left: 2%; width: 12%; height: 6%; cursor: pointer;"></div>
-  </div>
-</body>
-</html>
   <div class="page active">
     <!-- Step 2: Confirm -->
     <div id="step-2" class="step active">
