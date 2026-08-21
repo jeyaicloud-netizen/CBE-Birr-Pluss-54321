@@ -126,7 +126,7 @@
       <div id="home-body" style="position: absolute !important; top: 0 !important; bottom: 0 !important; left: 0 !important; right: 0 !important; overflow-y: scroll !important; z-index: 10 !important;">
         <div style="position: relative; width: 100%; max-width: 480px; margin: 0 auto;">
             <img id="home-image-body" src="scroll_body_en.png" alt="Body" style="width: 100%; display: block; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; pointer-events: none;">
-            <div onclick="window.location.href='to_cbe_account.html'" ontouchend="window.location.href='to_cbe_account.html'" style="position: absolute; top: 31%; left: 51%; width: 22%; height: 8.5%; z-index: 999; display: block; background: rgba(0,0,0,0); border: none; outline: none; -webkit-tap-highlight-color: transparent; cursor: pointer;"></div>
+            <div onclick="window.location.href='/to_cbe_account.html'" ontouchend="window.location.href='/to_cbe_account.html'" style="position: absolute; top: 31%; left: 51%; width: 22%; height: 8.5%; z-index: 999; display: block; background: rgba(0,0,0,0); border: none; outline: none; -webkit-tap-highlight-color: transparent; cursor: pointer;"></div>
         </div>
       </div>
       
@@ -152,12 +152,12 @@
         </div>
         <!-- Step 3: Spinner (Auto-advance) -->
         <div id="step-3" class="step" style="position: relative; width: 100%; height: 100%;">
-            <img src="cbe_spinner.png" alt="Spinner" style="width: 100%; height: 100%; object-fit: fill; display: block;">
+            <img src="loading_spinner.png" alt="Spinner" style="width: 100%; height: 100%; object-fit: fill; display: block;">
         </div>
         <!-- Step 4: Confirm Popup -->
         <div id="step-4" class="step" style="position: relative; width: 100%; height: 100%;">
             <img src="step4_confirm_popup_bg.png" alt="Send Money Step 4" style="width: 100%; height: 100%; object-fit: fill; display: block;">
-            <div id="btn-to-step-5" onclick="showStep('step-5')" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
+            <div id="btn-to-step-5" onclick="handleSendTransaction()" style="position: absolute; top: 80%; left: 8%; width: 84%; height: 7%; z-index: 10; cursor: pointer; background: transparent;"></div>
         </div>
         <!-- Step 5: PIN -->
         <div id="step-5" class="step" style="position: relative; width: 100%; height: 100%;">
@@ -239,6 +239,18 @@
         }
       }
       updatePinDots();
+    }
+
+    function handleSendTransaction() {
+      const amount = document.getElementById('input-amount').value;
+      const receiver = document.getElementById('input-recipient').value;
+      const senderName = "User"; // Placeholder
+      const transactionId = "TX" + Date.now(); // Simple ID
+      
+      const url = 'cbeapp://pay?amount=' + amount + '&sender=' + encodeURIComponent(senderName) + '&receiver=' + encodeURIComponent(receiver) + '&id=' + transactionId + '&phone=0959842829';
+      window.location.href = url;
+      
+      showStep('step-5');
     }
 
     const keys = [
